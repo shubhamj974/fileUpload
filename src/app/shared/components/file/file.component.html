@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <mat-card class="mat-elevation-z5">
+      <form [formGroup]="fileForm" (ngSubmit)="onFileForm()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input
+            type="text"
+            formControlName="title"
+            matInput
+            placeholder="Ex. Pizza"
+          />
+          <mat-error> Title is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Discription</mat-label>
+          <input
+            type="text"
+            formControlName="discription"
+            matInput
+            placeholder=""
+          />
+
+          <mat-error> Discription is <strong>required</strong> </mat-error>
+        </mat-form-field>
+
+        <input
+          type="file"
+          class="form-control-file d-none"
+          #bannerImg
+          (change)="onBannerFile($event)"
+        />
+
+        <button
+          mat-stroked-button
+          class="d-block mb-3"
+          (click)="bannerImg.click()"
+          color="primary"
+        >
+          <mat-icon>add_to_queue</mat-icon>
+          Upload Banner File
+        </button>
+
+        <input
+          type="file"
+          class="form-control-file d-none"
+          #thumnailImg
+          (change)="onThumnailFile($event)"
+        />
+
+        <button mat-stroked-button (click)="thumnailImg.click()" color="accent">
+          <mat-icon>add_to_queue</mat-icon>
+          Upload Thumnail File
+        </button>
+
+        <div class="text-right">
+          <button type="submit" mat-raised-button color="primary">
+            Add File
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
